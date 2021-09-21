@@ -12,21 +12,25 @@
       this.rateValue = document.getElementById("rate-slider-input");
       this.yearsInput = document.getElementById("years");
       this.computeBtn = document.getElementById("computeBtn");
-      
+
       this.msg = document.getElementById("message");
       this.msgDepositVal = document.getElementById("deposit");
       this.msgInterestVal = document.getElementById("interest-rate");
       this.msgInterestPaidVal = document.getElementById("interest-paid");
       this.msgYearPaid = document.getElementById("year-paid");
-      
-      this.rateValue.innerHTML = this.rateInput.value + "%"
+
+      this.rateValue.innerHTML = this.rateInput.value + "%";
       this.currentYear = new Date();
       this.events();
     }
 
     events() {
       this.computeBtn.addEventListener("click", () => this.compute());
-      this.rateInput.addEventListener("input", () =>  this.rateValue.innerHTML = this.rateInput.value + "%")
+      this.rateInput.addEventListener(
+        "input",
+        () => (this.rateValue.innerHTML = this.rateInput.value + "%")
+      );
+      this.amountInput.addEventListener("input", () => this.validate());
     }
 
     compute() {
@@ -42,9 +46,13 @@
       this.msgYearPaid.innerHTML =
         this.currentYear.getFullYear() + Number(this.yearsInput.value);
     }
+
+    validate() {
+        if ((this.amountInput.value/this.amountInput.value) !== 1) {
+            alert("Please enter a number");
+          }
+    }
   }
 
   const calculate = new Calculator();
 })();
-
-
