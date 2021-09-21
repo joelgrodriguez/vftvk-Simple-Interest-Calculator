@@ -1,16 +1,58 @@
 <html>
-    <head>
+  <head>
     <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1>Simple Interest Calculator</h1>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <h1>Simple Interest Calculator</h1>
 
-        Amount <input type="number"  id="principal">  <br/>
-        Rate <input type="number"  id="rate">  <br/>
-        No. of Years <input type="number"  id="years">  <br/>
-        Interest : <span id="result"></span><br>
+      <div class="fields" >
+        <fieldset>
+          <label for="amount">Ammount:</label>
+          <input type="number" id="principal" name="amount" />
+        </fieldset>
+        <fieldset>
+          <label for="amount">Interest Rate:</label>
+          <span class="slider-input">
+              <input
+            type="range"
+            min="0.5"
+            max="12"
+            value="3.5"
+            class="slider"
+            id="rate-slider"
+            step="1"
+          />
+          <span id="rate-slider-input"></span>
+        </fieldset></span>
+        <fieldset>
+          <label for="amount">No. of Years:</label>
+          <select name="years" id="years" >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+          </select>
+        </fieldset>
 
-        <button onclick="compute()">Compute</button>
-    </body>
+        <button id="computeBtn">Compute Interest</button>
+      </div>
+      <div id="message" class="message">
+        If you deposit <span id="deposit"></span>, <br>
+        at an interest rate of <span id="interest-rate"></span>. <br>
+        You will receive an amount of <span id="interest-paid"></span>, <br>
+        in the year <span id="year-paid"></span>
+      </div>
+      <footer>
+          &copy; Everyone Can Get Rich
+      </footer>
+    </div>
+
+    <!-- JS -->
+    <script src="./script.js"></script>
+  </body>
 </html>
